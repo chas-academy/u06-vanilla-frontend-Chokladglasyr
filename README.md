@@ -8,7 +8,7 @@ Applikationen ska kopplas till det REST-API ni tidigare skapat i U05:an och inne
 Where you can create your own wishlists, paste the link for whatever you wish for, give some description, do you want it in the colour black? A size small? 
 Let other users (aka family and friends) be able to check what you want whenever. 
 
-Regret something or you already received it? Delete it from the list! Changed your mind and you rather want it in colour blue? Edit your wished item! 
+Regret something or you already received it? Delete it from the list! Changed your mind and you rather want it in colour blue? Edit your wished item!   
 <img src="/assets/wishlist.logo.png" width="200px">  
 
 ## Getting started
