@@ -1,0 +1,25 @@
+{
+  "name": "u06-vanilla-frontend-chokladglasyr",
+  "version": "1.0.0",
+  "description": "I detta projekt ska ni utveckla en liten frontend-applikation med ren JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tsc --watch",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chas-academy/u06-vanilla-frontend-Chokladglasyr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chas-academy/u06-vanilla-frontend-Chokladglasyr/issues"
+  },
+  "homepage": "https://github.com/chas-academy/u06-vanilla-frontend-Chokladglasyr#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

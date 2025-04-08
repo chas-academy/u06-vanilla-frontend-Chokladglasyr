@@ -1,0 +1,73 @@
+img {
+  border-radius: 10px;
+}
+
+#image {
+  width: 320px;
+}
+
+#edit-gear {
+  width: 42px;
+}
+
+#logo {
+  width: 68px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.home-btns {
+  width: 184px;
+  height: 36px;
+  background-color: #8ECC7B;
+  border-radius: 10px;
+  border-style: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+}
+
+#my-lists {
+  background-color: #D499EF;
+}
+
+main > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4.6rem;
+}
+
+.list-card {
+  border: solid black 1px;
+  width: 300px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.inputFields {
+  border-radius: 5px;
+  border: solid black 1px;
+  width: 224px;
+  height: 32px;
+}/*# sourceMappingURL=style.css.map */
