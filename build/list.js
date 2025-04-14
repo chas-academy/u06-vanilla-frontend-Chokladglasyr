@@ -1,53 +1,57 @@
 "use strict";
-const url = new URL(window.location.href);
-console.log(url);
-const main = document.getElementById('mainBody');
-if (url.searchParams.has('home') && main) {
-    const image = main.appendChild(document.createElement('img'));
-
-    Object.assign(image, {
-        src: './assets/wishlist.png',
-        id: 'image',
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-    const containerBtn = main.appendChild(document.createElement('div'));
-    containerBtn.setAttribute("class", "buttons");
-    const listBtn = containerBtn.appendChild(document.createElement('a'));
-    const searchBtn = containerBtn.appendChild(document.createElement('a'));
-    const filterBtn = containerBtn.appendChild(document.createElement('a'));
-    Object.assign(listBtn, {
-        href: '?lists',
-        className: 'home-btns',
-        id: 'my-lists',
-        placeholder: "edit",
+};
+const API_BASE_URL = "https://u05-restfulapi-chokladglasyr.onrender.com/";
+// -------------------------------------- Fetch list --------------------------------//
+fetchListData();
+function fetchListData() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const listContainer = document.getElementById('list-container');
+        try {
+            const lists = yield fetch(`${API_BASE_URL}lists`);
+            if (!lists.ok)
+                throw new Error('Ooops');
+            const listsData = yield lists.json();
+            // console.log(listsData)
+            listsData.forEach((list) => {
+                const listCard = listContainer === null || listContainer === void 0 ? void 0 : listContainer.appendChild(document.createElement('div'));
+                if (listCard) {
+                    listCard.setAttribute("class", "list-card");
+                    const listText = listCard.appendChild(document.createElement('a'));
+                    Object.assign(listText, {
+                        className: "list-text",
+                        href: `./items.html?listId=${list._id}`,
+                        target: "_self"
+                    });
+                    const listTitle = listText.appendChild(document.createElement('p'));
+                    const listDescript = listText.appendChild(document.createElement('p'));
+                    listTitle.innerText += `${list.title}`;
+                    listDescript.innerText += `${list.description}`;
+                    // const listBtns = listCard?.appendChild(document.createElement('div'));
+                    // listBtns?.setAttribute("class", "list-btns")
+                    // const editListBtn = listBtns?.appendChild(document.createElement('a'));
+                    // const deleteListBtn = listBtns?.appendChild(document.createElement('a'));
+                    // if (editListBtn && deleteListBtn) {
+                    //     editListBtn.setAttribute("class", "editListBtn")
+                    //     editListBtn.innerText = "Edit";
+                    //     deleteListBtn.setAttribute("class", "deleteListBtn");
+                    //     deleteListBtn.innerText = "Delete";
+                    // }
+                }
+            });
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                console.error('Something went wrong', error);
+                return;
+            }
+        }
     });
-    listBtn.innerHTML = "My lists";
-    Object.assign(searchBtn, {
-        href: '?search',
-        className: 'home-btns',
-        id: 'search'
-    });
-    searchBtn.innerHTML = "Search lists by users name";
-    Object.assign(filterBtn, {
-        href: '?filter',
-        className: 'home-btns',
-        id: 'filter-name'
-    });
-    filterBtn.innerHTML = "Search items";
-}
-if (url.searchParams.has('lists') && main) {
-    const listCard = main.appendChild(document.createElement('div'));
-    Object.assign(listCard, {
-        href: '',
-        className: 'list-card'
-    });
-}
-if (url.searchParams.has('search') && main) {
-    const searchDiv = main.appendChild(document.createElement('div'));
-    const input = searchDiv.appendChild(document.createElement('input'));
-    Object.assign(input, {
-        type: 'text',
-        className: 'inputFields',
-    });
-    // const searchNow = searchDiv.appendChild(document.)
-    // 
 }

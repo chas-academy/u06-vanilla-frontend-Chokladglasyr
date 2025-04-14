@@ -21,7 +21,14 @@ $blue: #3F7EA5;
     font-style: normal;
     font-size: 12px;
 }
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
 img {
     border-radius: 10px;
 }
@@ -40,7 +47,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.6rem;
+    margin: 1.6rem;
 }
 .buttons {
     display: flex;
@@ -62,10 +69,10 @@ nav {
     border-style: none;
     @include poppins-medium();
 }
-#my-lists {
+#my-list-btn {
     background-color: $purple;
 }
-main>div {
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,11 +83,58 @@ main>div {
     border: solid black 1px;
     width: 300px;
     height: 80px;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+.list-text {
+    @include poppins-medium();
+    >p {
+        padding-bottom: 8px;
+    }
+}
+.list-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.editListBtn, .deleteListBtn {
+    width: 48px;
+    height: 24px;
     border-radius: 10px;
+    text-align: center;
+    background-color: $green;
+    @include poppins-regular();
+}
+.deleteListBtn{
+    background-color: $red;
 }
 .inputFields {
     border-radius: 5px;
     border: solid black 1px;
     width: 224px;
     height: 32px;
+}
+#edit-user {
+    margin-top: 15rem;
+}
+#edit-user>div {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+.editBtn {
+    width: 120px;
+    height: 32px;
+    border: none;
+    border-radius: 20px;
+}
+#deleteBtn {
+    background-color: $red;
+}
+#saveBtn {
+    background-color: $green;
 }
