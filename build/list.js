@@ -19,7 +19,7 @@ function fetchListData() {
             if (!lists.ok)
                 throw new Error('Ooops');
             const listsData = yield lists.json();
-            // console.log(listsData)
+            console.log(listsData);
             listsData.forEach((list) => {
                 const listCard = listContainer === null || listContainer === void 0 ? void 0 : listContainer.appendChild(document.createElement('div'));
                 if (listCard) {
@@ -34,16 +34,16 @@ function fetchListData() {
                     const listDescript = listText.appendChild(document.createElement('p'));
                     listTitle.innerText += `${list.title}`;
                     listDescript.innerText += `${list.description}`;
-                    // const listBtns = listCard?.appendChild(document.createElement('div'));
-                    // listBtns?.setAttribute("class", "list-btns")
-                    // const editListBtn = listBtns?.appendChild(document.createElement('a'));
-                    // const deleteListBtn = listBtns?.appendChild(document.createElement('a'));
-                    // if (editListBtn && deleteListBtn) {
-                    //     editListBtn.setAttribute("class", "editListBtn")
-                    //     editListBtn.innerText = "Edit";
-                    //     deleteListBtn.setAttribute("class", "deleteListBtn");
-                    //     deleteListBtn.innerText = "Delete";
-                    // }
+                    const listBtns = listCard === null || listCard === void 0 ? void 0 : listCard.appendChild(document.createElement('div'));
+                    listBtns === null || listBtns === void 0 ? void 0 : listBtns.setAttribute("class", "list-btns");
+                    const editListBtn = listBtns === null || listBtns === void 0 ? void 0 : listBtns.appendChild(document.createElement('a'));
+                    const deleteListBtn = listBtns === null || listBtns === void 0 ? void 0 : listBtns.appendChild(document.createElement('a'));
+                    if (editListBtn && deleteListBtn) {
+                        editListBtn.setAttribute("class", "editListBtn");
+                        editListBtn.innerText = "Edit";
+                        deleteListBtn.setAttribute("class", "deleteListBtn");
+                        deleteListBtn.innerText = "Delete";
+                    }
                 }
             });
         }

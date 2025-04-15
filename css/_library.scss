@@ -1,0 +1,26 @@
+$green: #8ECC7B;
+$purple: #D499EF;
+$red: #F77B62;
+$blue: #3F7EA5;
+
+@mixin poppins-bold {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 12px;
+}
+@mixin poppins-medium {
+    // font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+}
+@mixin poppins-regular {
+    // font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+@mixin poppins-light {
+    font-weight: 300;
+    font-style: normal;
+  }

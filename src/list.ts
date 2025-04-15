@@ -9,7 +9,7 @@ async function fetchListData() {
         if (!lists.ok) throw new Error('Ooops');
 
         const listsData = await lists.json();
-        // console.log(listsData)
+        console.log(listsData)
         listsData.forEach((list: {title: string, description: string, username: string, _id: number}) => {
             const listCard = listContainer?.appendChild(document.createElement('div'));
             if(listCard) {
@@ -25,17 +25,17 @@ async function fetchListData() {
                 const listDescript = listText.appendChild(document.createElement('p'));
                 listTitle.innerText += `${list.title}`;
                 listDescript.innerText += `${list.description}`;
-                // const listBtns = listCard?.appendChild(document.createElement('div'));
-                // listBtns?.setAttribute("class", "list-btns")
-                // const editListBtn = listBtns?.appendChild(document.createElement('a'));
-                // const deleteListBtn = listBtns?.appendChild(document.createElement('a'));
-                // if (editListBtn && deleteListBtn) {
-                //     editListBtn.setAttribute("class", "editListBtn")
-                //     editListBtn.innerText = "Edit";
+                const listBtns = listCard?.appendChild(document.createElement('div'));
+                listBtns?.setAttribute("class", "list-btns")
+                const editListBtn = listBtns?.appendChild(document.createElement('a'));
+                const deleteListBtn = listBtns?.appendChild(document.createElement('a'));
+                if (editListBtn && deleteListBtn) {
+                    editListBtn.setAttribute("class", "editListBtn")
+                    editListBtn.innerText = "Edit";
     
-                //     deleteListBtn.setAttribute("class", "deleteListBtn");
-                //     deleteListBtn.innerText = "Delete";
-                // }
+                    deleteListBtn.setAttribute("class", "deleteListBtn");
+                    deleteListBtn.innerText = "Delete";
+                }
             }
         });
         }catch (error: unknown) {

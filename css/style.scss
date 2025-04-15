@@ -1,29 +1,11 @@
-$green: #8ECC7B;
-$purple: #D499EF;
-$red: #F77B62;
-$blue: #3F7EA5;
+@use "item" as item;
+@use "library" as L;
+@use "login" as login;
 
-@mixin poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 12px;
-}
-@mixin poppins-medium {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 12px;
-}
-@mixin poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 12px;
-}
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 a {
     text-decoration: none;
@@ -35,6 +17,7 @@ img {
 
 #image {
     width: 320px;
+    margin-bottom: 4rem;
     
 }
 #edit-gear {
@@ -64,20 +47,20 @@ nav {
 .home-btns {
     width: 184px;
     height: 36px;
-    background-color: $green;
+    background-color: L.$green;
     border-radius: 10px;
     border-style: none;
-    @include poppins-medium();
+    @include L.poppins-medium();
 }
 #my-list-btn {
-    background-color: $purple;
+    background-color: L.$purple;
 }
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4.6rem;
+    gap: 0.6rem;
 }
 .list-card {
     border: solid black 1px;
@@ -90,7 +73,7 @@ main {
     margin: 2rem;
 }
 .list-text {
-    @include poppins-medium();
+    @include L.poppins-medium();
     >p {
         padding-bottom: 8px;
     }
@@ -100,16 +83,23 @@ main {
     flex-direction: column;
     gap: 10px;
 }
-.editListBtn, .deleteListBtn {
+.item-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
     width: 48px;
     height: 24px;
     border-radius: 10px;
-    text-align: center;
-    background-color: $green;
-    @include poppins-regular();
+    background-color: L.$green;
+    @include L.poppins-regular();
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.deleteListBtn{
-    background-color: $red;
+.deleteListBtn, .deleteItemBtn {
+    background-color: L.$red;
 }
 .inputFields {
     border-radius: 5px;
@@ -133,8 +123,8 @@ main {
     border-radius: 20px;
 }
 #deleteBtn {
-    background-color: $red;
+    background-color: L.$red;
 }
 #saveBtn {
-    background-color: $green;
+    background-color: L.$green;
 }

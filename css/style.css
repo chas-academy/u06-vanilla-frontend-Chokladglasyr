@@ -1,6 +1,58 @@
+#items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.item-photo {
+  width: 95px;
+  height: 104px;
+}
+
+.item-card {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 187px;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
+#item-link, #item-nolink {
+  grid-column: 1/span 3;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#item-link {
+  color: internal value;
+  text-decoration: underline;
+  cursor: auto;
+}
+
+.item-photo {
+  grid-column: 3;
+  grid-row: 2/span 3;
+}
+
+#item-text {
+  grid-column: 1/span 2;
+  grid-row: 2/span 2;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+}
+#item-text > p {
+  padding-bottom: 1rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -14,6 +66,7 @@ img {
 
 #image {
   width: 320px;
+  margin-bottom: 4rem;
 }
 
 #edit-gear {
@@ -50,7 +103,6 @@ nav {
   background-color: #8ECC7B;
   border-radius: 10px;
   border-style: none;
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -65,7 +117,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4.6rem;
+  gap: 0.6rem;
 }
 
 .list-card {
@@ -80,7 +132,6 @@ main {
 }
 
 .list-text {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -95,19 +146,26 @@ main {
   gap: 10px;
 }
 
-.editListBtn, .deleteListBtn {
+.item-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
   width: 48px;
   height: 24px;
   border-radius: 10px;
-  text-align: center;
   background-color: #8ECC7B;
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.deleteListBtn {
+.deleteListBtn, .deleteItemBtn {
   background-color: #F77B62;
 }
 
