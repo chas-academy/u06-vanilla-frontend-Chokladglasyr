@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Login</title>
 </head>
-<body>
-    <img id="logo" src="./assets/wishlist.logo.png" alt="logo">
+<body id="login-page">
+    <header>
+        <img id="logo-login" src="./assets/wishlist.logo.png" alt="logo">
+    </header>
+    <form id="input-login" method="POST">
+        <input class="inputFields" type="email" name="email" id="email" placeholder="Email" required>
+        <input class="inputFields" type="password" id="password" placeholder="Password" required>
+        <button id="login" type="submit">Login</button>
+    </form>
+<script src="./build/login.js"></script>
 </body>
 </html>
