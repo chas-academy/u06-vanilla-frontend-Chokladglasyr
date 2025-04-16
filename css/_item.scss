@@ -1,0 +1,47 @@
+@use "library" as L;
+
+#items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.item-photo {
+    width: 95px;
+    height: 104px;
+}
+
+.item-card {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 100px;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 187px;
+    border: solid black 1px;
+    border-radius: 10px;
+}
+#item-link, #item-nolink {
+    grid-column: 1/ span 3;
+    @include L.poppins-light;
+}
+#item-link {
+    color: (internal value);
+    text-decoration: underline;
+    cursor: auto;
+}
+.item-photo {
+    grid-column: 3;
+    grid-row: 2 / span 3;
+
+}
+#item-text {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+    @include L.poppins-medium;
+    >p {
+        padding-bottom: 1rem;
+    }
+    
+}

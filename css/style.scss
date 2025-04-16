@@ -1,0 +1,145 @@
+@use "item" as item;
+@use "library" as L;
+@use "login" as login;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    border-radius: 10px;
+}
+
+#image {
+    width: 320px;
+    margin-bottom: 4rem;
+    
+}
+#edit-gear {
+    width: 42px;
+}
+#logo {
+    width: 68px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.6rem;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+}
+.home-btns, #new-list, .BTN {
+    width: 184px;
+    height: 36px;
+    background-color: L.$green;
+    border-radius: 10px;
+    border-style: none;
+    @include L.poppins-medium();
+}
+#new-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+#my-list-btn {
+    background-color: L.$purple;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+}
+.list-card {
+    border: solid black 1px;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+.list-text {
+    @include L.poppins-medium();
+    >p {
+        padding-bottom: 8px;
+    }
+}
+.list-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.item-btns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
+    width: 48px;
+    height: 24px;
+    border-radius: 10px;
+    background-color: L.$green;
+    @include L.poppins-regular();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.deleteListBtn, .deleteItemBtn {
+    background-color: L.$red;
+}
+.inputFields {
+    border-radius: 5px;
+    border: solid black 1px;
+    width: 224px;
+    height: 32px;
+}
+#edit-user {
+    margin-top: 15rem;
+}
+#edit-user>div {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+.editBtn {
+    width: 120px;
+    height: 32px;
+    border: none;
+    border-radius: 20px;
+}
+#deleteBtn {
+    background-color: L.$red;
+}
+#saveBtn {
+    background-color: L.$green;
+}
+#add-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    
+}

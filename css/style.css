@@ -1,0 +1,254 @@
+#items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.item-photo {
+  width: 95px;
+  height: 104px;
+}
+
+.item-card {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 187px;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
+#item-link, #item-nolink {
+  grid-column: 1/span 3;
+  font-weight: 300;
+  font-style: normal;
+}
+
+#item-link {
+  color: internal value;
+  text-decoration: underline;
+  cursor: auto;
+}
+
+.item-photo {
+  grid-column: 3;
+  grid-row: 2/span 3;
+}
+
+#item-text {
+  grid-column: 1/span 2;
+  grid-row: 2/span 2;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+}
+#item-text > p {
+  padding-bottom: 1rem;
+}
+
+#login-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 89px;
+}
+
+#logo-login {
+  width: 142px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-login {
+  display: flex;
+  flex-direction: column;
+  width: 224px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+#login {
+  width: 120px;
+  height: 36px;
+  border-radius: 20px;
+  border: none;
+  background-color: #8ECC7B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  border-radius: 10px;
+}
+
+#image {
+  width: 320px;
+  margin-bottom: 4rem;
+}
+
+#edit-gear {
+  width: 42px;
+}
+
+#logo {
+  width: 68px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.6rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.home-btns, #new-list, .BTN {
+  width: 184px;
+  height: 36px;
+  background-color: #8ECC7B;
+  border-radius: 10px;
+  border-style: none;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+}
+
+#new-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+#my-list-btn {
+  background-color: #D499EF;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.list-card {
+  border: solid black 1px;
+  width: 300px;
+  height: 100px;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.list-text {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+}
+.list-text > p {
+  padding-bottom: 8px;
+}
+
+.list-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
+  width: 48px;
+  height: 24px;
+  border-radius: 10px;
+  background-color: #8ECC7B;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.deleteListBtn, .deleteItemBtn {
+  background-color: #F77B62;
+}
+
+.inputFields {
+  border-radius: 5px;
+  border: solid black 1px;
+  width: 224px;
+  height: 32px;
+}
+
+#edit-user {
+  margin-top: 15rem;
+}
+
+#edit-user > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.editBtn {
+  width: 120px;
+  height: 32px;
+  border: none;
+  border-radius: 20px;
+}
+
+#deleteBtn {
+  background-color: #F77B62;
+}
+
+#saveBtn {
+  background-color: #8ECC7B;
+}
+
+#add-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */
