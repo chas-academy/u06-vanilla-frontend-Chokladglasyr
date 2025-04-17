@@ -13,6 +13,9 @@ Regret something or you already received it? Delete it from the list! Changed yo
 <img src="/assets/wishlist.logo.png" width="200px">  
 
 ### How it works
+As a regular visitor you may browse the existing lists and items in each list.   
+As a logged in user you are able to create, edit and delete lists, and the items in the list, however you cannot edit or delete someone elses list or its items.  
+As an admin you are able to create, edit, delete any lists or its items, you can also create, edit and delete existing users, or give other users admin rights. 
 
 ## Getting started
 + ```git clone https://github.com/chas-academy/u06-vanilla-frontend-Chokladglasyr.git ```
@@ -23,5 +26,6 @@ Regret something or you already received it? Delete it from the list! Changed yo
 For this assignment we used Netlify. You can find my work [here]().
 
 ### Design
-<img src="/assets/wishlist.png" width="200px">  
+<img src="/assets/wishlist.png" width="200px">    
+  
 [Figma](https://www.figma.com/design/VDilkI4u1PNdBnRvvUf8nw/U06?node-id=15-189&t=IT5BfNWCtzmFGOkz-1)

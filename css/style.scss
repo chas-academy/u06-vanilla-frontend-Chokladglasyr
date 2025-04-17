@@ -31,6 +31,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin: 1.6rem;
+    @include L.desktop {
+        width: 60vw;
+        margin: 1.6rem auto;
+    }
 }
 .buttons {
     display: flex;
@@ -51,8 +55,9 @@ nav {
     border-radius: 10px;
     border-style: none;
     @include L.poppins-medium();
+    
 }
-#new-list {
+#new-list, #logoutBtn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +73,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
+
 }
 .list-card {
     border: solid black 1px;
@@ -78,6 +84,12 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 2rem;
+}
+#list-container{
+    @include L.desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 .list-text {
     @include L.poppins-medium();
@@ -90,12 +102,15 @@ main {
     flex-direction: column;
     gap: 20px;
 }
+#listimg {
+    width: 70px;
+}
 .item-btns {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
-.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn, .saveBtn {
     width: 48px;
     height: 24px;
     border-radius: 10px;
@@ -116,7 +131,7 @@ main {
     height: 32px;
 }
 #edit-user {
-    margin-top: 15rem;
+    margin-top: 5rem;
 }
 #edit-user>div {
     display: flex;
@@ -142,4 +157,24 @@ main {
     gap: 10px;
     align-items: center;
     
+}
+#backBtn {
+    margin-left: 20px;
+    @include L.desktop {
+        margin-left: 20vw;
+    }
+}
+#logout, #editText {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // justify-content: center;
+    // align-items: center;
+    >a {
+        margin: 20px auto;
+
+    }
+    >p, h2 {
+        text-align: center;
+    }
 }

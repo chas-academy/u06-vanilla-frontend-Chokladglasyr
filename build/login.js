@@ -8,6 +8,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const editOrloginCon = document.getElementById('editOrlogin');
+const editOrloginBTN = editOrloginCon === null || editOrloginCon === void 0 ? void 0 : editOrloginCon.appendChild(document.createElement('a'));
+let token = sessionStorage.getItem("token");
+console.log(token);
+if (!token || token === "undefined") {
+    if (editOrloginBTN) {
+        Object.assign(editOrloginBTN, {
+            href: "./login.html",
+            className: "login"
+        });
+        editOrloginBTN.innerText = "Login";
+    }
+}
+else {
+    if (editOrloginBTN) {
+        Object.assign(editOrloginBTN, {
+            href: "./edit-user.html",
+        });
+        editOrloginBTN.innerHTML = `<img id="edit-gear" src="./assets/edit.png" alt="edit">`;
+    }
+}
 const form = {
     email: document.querySelector('#email'),
     password: document.querySelector('#password'),

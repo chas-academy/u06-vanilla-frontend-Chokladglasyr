@@ -23,4 +23,9 @@ $blue: #3F7EA5;
 @mixin poppins-light {
     font-weight: 300;
     font-style: normal;
-  }
+}
+@mixin desktop {
+    @media (min-width: 790px) {
+        @content;
+    }
+}

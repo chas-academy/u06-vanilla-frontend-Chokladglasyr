@@ -16,6 +16,13 @@
             <a href="./edit-user.html"><img id="edit-gear" src="./assets/edit.png" alt="edit"></a>
         </div>
     </nav>
+    <div id="logout">
+        <a href="./index.html" class="BTN" id="logoutBtn" onclick="sessionStorage.removeItem('token')">Logout</a>
+        <div id="editText">
+            <p>or</p>
+            <h2>Edit</h2>
+        </div>
+    </div>
     <main id="edit-user">
         <div>
             <input class="inputFields" type="text" id="name" value="">
@@ -25,6 +32,6 @@
         </div>
     </main>
 
-    <script src="./build/script.js" defer></script>
+    <!-- <script src="./build/script.js" defer></script> -->
 </body>
 </html>
