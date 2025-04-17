@@ -16,7 +16,7 @@ header {
     justify-content: center;
     align-items: center;
 }
-#input-login {
+#input-login, #input-signup {
     display: flex;
     flex-direction: column;
     width: 224px;
@@ -32,4 +32,9 @@ header {
     background-color: L.$green;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
+}
+#signup {
+    background-color: L.$blue;
+    color: white;
 }

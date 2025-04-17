@@ -68,7 +68,7 @@ header {
   align-items: center;
 }
 
-#input-login {
+#input-login, #input-signup {
   display: flex;
   flex-direction: column;
   width: 224px;
@@ -85,6 +85,12 @@ header {
   background-color: #8ECC7B;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+}
+
+#signup {
+  background-color: #195F8B;
+  color: white;
 }
 
 * {
