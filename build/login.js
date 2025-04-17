@@ -35,9 +35,13 @@ const form = {
 };
 const loginTry = document.getElementById('login');
 loginTry === null || loginTry === void 0 ? void 0 : loginTry.addEventListener('click', fetchLoginData);
+const getFormValidation = document.getElementById('input-login');
 function fetchLoginData(e) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            if (!getFormValidation.checkValidity()) {
+                return;
+            }
             e.preventDefault();
             if (form && form.email && form.password) {
                 const response = yield fetch('https://u05-restfulapi-chokladglasyr.onrender.com/login', {

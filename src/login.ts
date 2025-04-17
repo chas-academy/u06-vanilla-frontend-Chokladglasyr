@@ -27,10 +27,13 @@ const form = {
 }
 const loginTry = document.getElementById('login');
 loginTry?.addEventListener('click', fetchLoginData);
+const getFormValidation = document.getElementById('input-login') as HTMLFormElement;
 
 async function fetchLoginData(e: Event) {
     try{
-
+        if (!getFormValidation.checkValidity()) {
+            return;
+          }
         e.preventDefault();
         if (form && form.email && form.password) {
             const response = await fetch('https://u05-restfulapi-chokladglasyr.onrender.com/login', {

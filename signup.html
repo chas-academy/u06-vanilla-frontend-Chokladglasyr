@@ -12,11 +12,13 @@
         <!-- <img id="logo-login" src="./assets/wishlist.logo.png" alt="logo"> -->
     </header>
     <form id="input-login" method="POST">
+        <input class="inputFields" type="text" name="name" id="name" placeholder="Name">
         <input class="inputFields" type="email" name="email" id="email" placeholder="Email" required>
         <input class="inputFields" type="password" id="password" placeholder="Password" required>
-        <button class="login" id="login" type="submit">Login</button>
-        <p>or</p>
-        <a href="./signup.html" class="login" id="signup">Sign up</a>
+        <input class="inputFields" type="password" id="confirmed-password" placeholder="Confirm password" required>
+        <button class="login" id="signup" type="submit">Signup</button>
+        <p>Already signed up?</p>
+        <a onclick="history.back()" class="login" id="login">Login</a>
     </form>
 <script src="./build/login.js"></script>
 </body>
