@@ -76,12 +76,15 @@ header {
   align-items: center;
 }
 
-#login {
+.login {
+  display: flex;
   width: 120px;
   height: 36px;
   border-radius: 20px;
   border: none;
   background-color: #8ECC7B;
+  justify-content: center;
+  align-items: center;
 }
 
 * {
@@ -118,6 +121,12 @@ nav {
   align-items: center;
   margin: 1.6rem;
 }
+@media (min-width: 790px) {
+  nav {
+    width: 60vw;
+    margin: 1.6rem auto;
+  }
+}
 
 .buttons {
   display: flex;
@@ -143,7 +152,7 @@ nav {
   font-size: 12px;
 }
 
-#new-list {
+#new-list, #logoutBtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,6 +183,13 @@ main {
   margin: 2rem;
 }
 
+@media (min-width: 790px) {
+  #list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .list-text {
   font-weight: 500;
   font-style: normal;
@@ -189,13 +205,17 @@ main {
   gap: 20px;
 }
 
+#listimg {
+  width: 70px;
+}
+
 .item-btns {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn {
+.editListBtn, .deleteListBtn, .editItemBtn, .deleteItemBtn, .saveBtn {
   width: 48px;
   height: 24px;
   border-radius: 10px;
@@ -221,7 +241,7 @@ main {
 }
 
 #edit-user {
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 
 #edit-user > div {
@@ -251,4 +271,25 @@ main {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+
+#backBtn {
+  margin-left: 20px;
+}
+@media (min-width: 790px) {
+  #backBtn {
+    margin-left: 20vw;
+  }
+}
+
+#logout, #editText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#logout > a, #editText > a {
+  margin: 20px auto;
+}
+#logout > p, #logout h2, #editText > p, #editText h2 {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
