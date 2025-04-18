@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>My items</title>
+    <title>Add list</title>
 </head>
 <body>
     <nav>
@@ -20,13 +20,16 @@
         <a onclick="history.back()" class="saveBtn">Back</a>
     </div>
     <main>
-        <h1 id="title"> ?</h1>
-        <div id="items-container">
 
-        </div>
-        <a href="./additem.html" id="new-item">Create new item</a>
+    <form id="input-add-item">
+        <input class="inputFields" id="item-description" type="text" placeholder="Description" required>
+        <input class="inputFields" id="item-link" type="text" placeholder="Link">
+        <input class="inputFields" id="item-price" type="text" placeholder="Price">
+        <button id="add-new-item" class="BTN" type="submit">Save</button>
+    </form>
+
     </main>
-    <script src="./build/items.js" defer></script>
+    <script src="./build/additem.js" defer></script>
     <script src="./build/login.js" defer></script>
 </body>
 </html>

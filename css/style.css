@@ -21,6 +21,17 @@
   border-radius: 10px;
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.formContainer > input {
+  width: 280px;
+}
+
 #item-link, #item-nolink {
   grid-column: 1/span 3;
   font-weight: 300;
@@ -147,7 +158,7 @@ nav {
   color: black;
 }
 
-.home-btns, #new-list, .BTN {
+.home-btns, #new-list, .BTN, #new-item {
   width: 184px;
   height: 36px;
   background-color: #8ECC7B;
@@ -158,12 +169,14 @@ nav {
   font-size: 12px;
 }
 
-#new-list, #logoutBtn {
+#new-list, #logoutBtn, #new-item {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   color: black;
+  margin-bottom: 100px;
+  margin-top: 30px;
 }
 
 #my-list-btn {
@@ -272,11 +285,12 @@ main {
   background-color: #8ECC7B;
 }
 
-#add-list {
+#add-list, #input-add-item {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
+  margin-top: 100px;
 }
 
 #backBtn {

@@ -13,23 +13,6 @@ let accessToken = sessionStorage.getItem("token");
 const listContainer = document.getElementById('list-container');
 const editOrloginContainer = document.getElementById('editOrlogin');
 const editOrloginBtn = editOrloginContainer === null || editOrloginContainer === void 0 ? void 0 : editOrloginContainer.appendChild(document.createElement('a'));
-console.log(accessToken);
-// if(!accessToken || accessToken === "undefined"){
-//     if(editOrloginBtn) {
-//         Object.assign(editOrloginBtn, {
-//             href: "./login.html",
-//             className: "login"
-//         })
-//         editOrloginBtn.innerText = "Login"
-//     }
-// } else {
-//     if(editOrloginBtn){
-//         Object.assign(editOrloginBtn, {
-//             href: "./edit-user.html",
-//         })
-//         editOrloginBtn.innerHTML = `<img id="edit-gear" src="./assets/edit.png" alt="edit">`
-//     }
-// }
 // -------------------------------------- Fetch list --------------------------------//
 fetchListData();
 function fetchListData() {
@@ -84,16 +67,15 @@ function fetchListData() {
                             id: `editListBtn-${index}`,
                         });
                         editListBtn.innerText = "Edit";
+                        const editList = document.getElementById(`editListBtn-${index}`);
+                        editList === null || editList === void 0 ? void 0 : editList.addEventListener("click", () => {
+                            editListFunction(list._id, list.userId, list.title, list.description, index);
+                        });
                         Object.assign(deleteListBtn, {
                             className: "deleteListBtn",
                             id: `deleteListBtn-${index}`,
                         });
                         deleteListBtn.innerText = "Delete";
-                        // -------------------------------------- Edit list --------------------------------//
-                        const editList = document.getElementById(`editListBtn-${index}`);
-                        editList === null || editList === void 0 ? void 0 : editList.addEventListener("click", () => {
-                            editListFunction(list._id, list.userId, list.title, list.description, index);
-                        });
                         const deleteList = document.getElementById(`deleteListBtn-${index}`);
                         deleteList === null || deleteList === void 0 ? void 0 : deleteList.addEventListener("click", () => {
                             deleteListFunction(list._id, list.userId);
@@ -134,7 +116,7 @@ function addList(e) {
             });
             const data = yield response.json();
             if (!response.ok) {
-                alert("Oops, something went wrong, try again!");
+                alert(data.message);
             }
             window.location.href = './list.html';
         }
@@ -152,16 +134,14 @@ function editListFunction(listId, userId, title, description, index) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const newTitle = document.createElement('input');
-            newTitle.setAttribute("id", "title");
             const newDescription = document.createElement('input');
-            newDescription.setAttribute("id", "description");
-            const titleValue = title;
-            const descriptValue = description;
             Object.assign(newTitle, {
-                value: `${titleValue}`,
+                value: `${title}`,
+                id: "title"
             });
             Object.assign(newDescription, {
-                value: `${descriptValue}`,
+                value: `${description}`,
+                id: "description"
             });
             const textContainer = document.getElementById(`list-text-${index}`);
             textContainer === null || textContainer === void 0 ? void 0 : textContainer.removeAttribute("href");
@@ -195,7 +175,7 @@ function editListFunction(listId, userId, title, description, index) {
                         if (!response.ok) {
                             alert(data.message);
                         }
-                        window.location.href = "./list.html";
+                        window.location.reload();
                     }
                     catch (error) {
                         if (error instanceof Error) {
@@ -228,12 +208,9 @@ function deleteListFunction(listId, userId) {
                     }
                 });
                 const data = yield response.json();
-                console.log(data);
                 alert(data.message);
             }
-            else {
-            }
-            window.location.href = "./list.html";
+            window.location.reload();
         }
         catch (error) {
             if (error instanceof Error) {

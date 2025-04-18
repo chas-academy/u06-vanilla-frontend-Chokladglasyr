@@ -1,10 +1,10 @@
-// import { API_BASE_URL } from "./list";
 
+let accToken = sessionStorage.getItem("token");
 fetchItemsData();
 
 async function fetchItemsData() {
     const itemContainer = document.getElementById('items-container');
-
+    
     try{
         const param = new URLSearchParams(window.location.search);
         const listId = param.get('listId')
@@ -30,15 +30,21 @@ async function fetchItemsData() {
             }
         }
         
-        itemsData.forEach((item: {link: String, description: String, price: Number, photo: String, userId: Number})=> {
+        itemsData.forEach((item: {link: String, description: String, price: Number, photo: String, userId: String, _id: String, listname: String}, index: number)=> {
             const itemCard = itemContainer?.appendChild(document.createElement('div'));
-            itemCard?.setAttribute("class", "item-card")
+            if (itemCard){
+                Object.assign(itemCard, {
+                    id: `item-card-${index}`,
+                    className: 'item-card'
+                })
+
+            }
             if (itemCard) {
                 const itemText = itemCard?.appendChild(document.createElement('div'));
-                itemText.setAttribute("id", "item-text")
+                itemText.setAttribute("id", `item-text`)
                 if (item.link) {
                     const itemLink = itemCard?.appendChild(document.createElement('a'));
-                    // itemLink.innerText += "Link: Buy now";
+
                     itemLink.innerText += `${item.link}`;
                     Object.assign(itemLink, {
                         id: "item-link",
@@ -70,20 +76,169 @@ async function fetchItemsData() {
                     itemPhoto.setAttribute("src", `${item.photo}`)
                 }
                 const itemBtns = itemCard?.appendChild(document.createElement('div'));
-                itemBtns?.setAttribute("class", "item-btns")
+                if(!accToken || accToken === "undefined") {
+                    itemBtns.setAttribute("style", "display:none;")
+                }
+                if(itemBtns) {
+                    Object.assign(itemBtns, {
+                        id: `item-btns-${index}`,
+                        className: 'item-btns'
+                    })
+
+                }
                 const editItemBtn = itemBtns?.appendChild(document.createElement('a'));
                 const deleteItemBtn = itemBtns?.appendChild(document.createElement('a'));
                 if (editItemBtn && deleteItemBtn) {
-                    editItemBtn.setAttribute("class", "editItemBtn")
+                    Object.assign(editItemBtn, {
+                        className: 'editItemBtn',
+                        id: `editItemBtn-${index}`
+                    })
                     editItemBtn.innerText = "Edit";
-    
-                    deleteItemBtn.setAttribute("class", "deleteItemBtn");
+
+                    const updateItem = document.getElementById(`editItemBtn-${index}`);
+                    updateItem?.addEventListener("click", () => {
+                        updateItemFunction(item._id, item.userId, item.link, item.description, item.price, item.photo, index)
+                    })
+                    
+                    Object.assign(deleteItemBtn, {
+                        className: 'deleteItemBtn',
+                        id: `deleteItemBtn-${index}`
+                    })
                     deleteItemBtn.innerText = "Delete";
+
+                    const deleteItem = document.getElementById(`deleteItemBtn-${index}`);
+                    deleteItem?.addEventListener('click', () => {
+                        deleteItemFunction(item._id, item.userId)
+                    })
                 }
             }            
         })
     }catch(error: unknown) {
         if(error instanceof Error) {
+            console.error('Something went wrong', error);
+            return;
+        }
+    }
+}
+const param2 = new URLSearchParams(window.location.search);
+const listId2 = param2.get('listId')
+const createItemBtn = document.getElementById('new-item');
+createItemBtn?.setAttribute("href", `./additem.html?listId=${listId2}`)
+
+// ------------------------------------- Edit item --------------------------------//
+async function updateItemFunction(id: String, userId: String, link: String, description: String, price: Number, photo: String, index: Number) {
+    try{
+        const textContainer = document.getElementById(`item-card-${index}`)
+        textContainer?.setAttribute("style","display: flex;")
+        const formContainer = textContainer?.appendChild(document.createElement('div'))
+        if (formContainer) {
+            formContainer.setAttribute("class", "formContainer")
+            textContainer?.replaceChildren(formContainer)
+            const newLink = formContainer.appendChild(document.createElement('input'));
+            Object.assign(newLink, {
+                id: 'link',
+                value: `${link}`,
+                className: 'inputFields',
+            })
+            if(!link){
+                newLink.setAttribute("placeholder", "Link:")
+            }
+            const newDescription = formContainer.appendChild(document.createElement('input'));
+            Object.assign(newDescription, {
+                id: 'description',
+                placeholder: "Description:",
+                className: 'inputFields'
+            })
+            if(description){
+                newDescription.setAttribute("value", `${description}`)
+            }
+            const newPrice = formContainer.appendChild(document.createElement('input'));
+            Object.assign(newPrice, {
+                id: 'price',
+                placeholder: "Price",
+                className: 'inputFields'
+            })
+            if(price || price === 0){
+                newPrice.setAttribute("value", `${price}`)
+            } 
+            let newPhoto: HTMLInputElement;
+            if(photo){
+                newPhoto = formContainer.appendChild(document.createElement('input'));
+                Object.assign(newPhoto, {
+                    id: 'photo',
+                    value: `${photo}`,
+                    className: 'inputFields'
+                })
+
+            }
+            const btnContainer = document.getElementById(`item-btns-${index}`)
+            const saveBtn = formContainer.appendChild(document.createElement('a'));
+            Object.assign(saveBtn, {
+                id: 'saveBtnItem',
+                className: 'saveBtn',
+                
+            })
+            saveBtn.innerText = 'Save';
+
+    
+            btnContainer?.replaceChildren(saveBtn)
+            saveBtn.addEventListener("click", updateItem);
+            async function updateItem(e: Event) {
+                try{
+                    const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/items/${userId}/${id}`, {
+                        method: "PUT",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-type": "application/json",
+                            "Authorization": `${accToken}`
+                        },
+                        body: JSON.stringify({
+                            description: newDescription.value.trim(),
+                            link: newLink.value.trim(),
+                            price: newPrice.value.trim() || 0,
+                            
+                            
+                        })
+                })
+                const data = await response.json();
+                if(!response.ok) {
+                    alert(data.message);
+                }
+               window.location.reload();
+
+                } catch(error: unknown) {
+                    if(error instanceof Error) {
+                        console.error("Something went wrong", error);
+                        return;
+                    }
+                }
+            }
+        }
+    } catch(error: unknown) {
+        if (error instanceof Error) {
+            console.error('Something went wrong', error);
+            return;
+        }
+    }
+}
+// -------------------------------------- Delete item --------------------------------//
+async function deleteItemFunction(id: String, userId: String) {
+    try{
+        if(confirm("Confirm to delete item.")) {
+            const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/items/${userId}/${id}`, {
+                method: "DELETE",
+                headers: {
+                    Accept: "application/json",
+                    "Content-type": "application/json",
+                    "Authorization": `${accToken}`
+                }
+            })
+            const data = await response.json();
+            alert(data.message)
+        }
+        window.location.reload();
+    } catch(error: unknown) {
+        if (error instanceof Error) {
             console.error('Something went wrong', error);
             return;
         }
