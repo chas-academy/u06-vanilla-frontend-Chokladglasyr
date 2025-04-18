@@ -181,3 +181,25 @@ main {
         text-align: center;
     }
 }
+#search, #search-by-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 30px;
+}
+#results {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    @include L.desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+#search-results{
+    @include L.desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
