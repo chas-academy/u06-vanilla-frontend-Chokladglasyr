@@ -48,7 +48,7 @@ nav {
         color: black;
     }
 }
-.home-btns, #new-list, .BTN {
+.home-btns, #new-list, .BTN, #new-item {
     width: 184px;
     height: 36px;
     background-color: L.$green;
@@ -57,12 +57,14 @@ nav {
     @include L.poppins-medium();
     
 }
-#new-list, #logoutBtn {
+#new-list, #logoutBtn, #new-item {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: black;
+    margin-bottom: 100px;
+    margin-top: 30px;
 }
 #my-list-btn {
     background-color: L.$purple;
@@ -151,11 +153,12 @@ main {
 #saveBtn {
     background-color: L.$green;
 }
-#add-list {
+#add-list, #input-add-item {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
+    margin-top: 100px;
     
 }
 #backBtn {

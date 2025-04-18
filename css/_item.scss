@@ -22,6 +22,18 @@
     border: solid black 1px;
     border-radius: 10px;
 }
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    >input {
+        width: 280px;
+    }
+
+
+}
 #item-link, #item-nolink {
     grid-column: 1/ span 3;
     @include L.poppins-light;
