@@ -1,5 +1,8 @@
 const editOrloginCon = document.getElementById('editOrlogin');
 const editOrloginBTN = editOrloginCon?.appendChild(document.createElement('a'))
+
+const createNewListBtn = document.getElementById('new-list')
+const createNewItemBtn = document.getElementById('new-item');
 let token = sessionStorage.getItem("token");
 // console.log(token)
 if(!token || token === "undefined"){
@@ -9,6 +12,8 @@ if(!token || token === "undefined"){
             className: "login"
         })
         editOrloginBTN.innerText = "Login"
+        createNewListBtn?.setAttribute("style", "display: none;")
+        createNewItemBtn?.setAttribute("style", "display: none;")
     
     }
 } else {

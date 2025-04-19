@@ -71,8 +71,10 @@ function searchListsByPrice(e) {
             if (results) {
                 results.innerHTML = "";
             }
+            if (!maxPrice) {
+            }
             e.preventDefault();
-            const response = yield fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/search?name=${searchName.value.trim()}&maxPrice=${maxPrice}`);
+            const response = yield fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/filteruser?name=${searchName.value.trim()}&maxPrice=${maxPrice.value.trim()}`);
             const data = yield response.json();
             console.log(data);
             if (!response.ok) {

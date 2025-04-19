@@ -10,6 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const editOrloginCon = document.getElementById('editOrlogin');
 const editOrloginBTN = editOrloginCon === null || editOrloginCon === void 0 ? void 0 : editOrloginCon.appendChild(document.createElement('a'));
+const createNewListBtn = document.getElementById('new-list');
+const createNewItemBtn = document.getElementById('new-item');
 let token = sessionStorage.getItem("token");
 // console.log(token)
 if (!token || token === "undefined") {
@@ -19,6 +21,8 @@ if (!token || token === "undefined") {
             className: "login"
         });
         editOrloginBTN.innerText = "Login";
+        createNewListBtn === null || createNewListBtn === void 0 ? void 0 : createNewListBtn.setAttribute("style", "display: none;");
+        createNewItemBtn === null || createNewItemBtn === void 0 ? void 0 : createNewItemBtn.setAttribute("style", "display: none;");
     }
 }
 else {

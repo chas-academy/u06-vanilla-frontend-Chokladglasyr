@@ -63,8 +63,11 @@ async function searchListsByPrice(e: Event) {
             results.innerHTML="";
 
         }
+        if(!maxPrice) {
+            
+        }
         e.preventDefault();
-        const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/search?name=${searchName.value.trim()}&maxPrice=${maxPrice}`)
+        const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/filteruser?name=${searchName.value.trim()}&maxPrice=${maxPrice.value.trim()}`)
         const data = await response.json()
         console.log(data)
         if(!response.ok) {
