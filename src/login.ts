@@ -118,6 +118,13 @@ async function fetchRegisterData(e: Event) {
         }
     }
 }
+async function logout(e: Event) {
+    e.preventDefault();
+    sessionStorage.removeItem('token')
+
+    window.location.href = "./index.html"
+}
+document.getElementById('logoutBtn')?.addEventListener("click", logout)
 
 // async function getNewAccessToken() {
 

@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var _a;
 const editOrloginCon = document.getElementById('editOrlogin');
 const editOrloginBTN = editOrloginCon === null || editOrloginCon === void 0 ? void 0 : editOrloginCon.appendChild(document.createElement('a'));
 const createNewListBtn = document.getElementById('new-list');
@@ -126,6 +127,14 @@ function fetchRegisterData(e) {
         }
     });
 }
+function logout(e) {
+    return __awaiter(this, void 0, void 0, function* () {
+        e.preventDefault();
+        sessionStorage.removeItem('token');
+        window.location.href = "./index.html";
+    });
+}
+(_a = document.getElementById('logoutBtn')) === null || _a === void 0 ? void 0 : _a.addEventListener("click", logout);
 // async function getNewAccessToken() {
 //     try {
 //       const response = await fetch('https://u05-restfulapi-chokladglasyr.onrender.com/refresh', {

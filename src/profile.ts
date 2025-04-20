@@ -43,7 +43,7 @@ async function updateProfile() {
                 "Authorization": `${aToken}`
             },
             body: JSON.stringify({
-                name: nameInput?.value.trim();
+                name: nameInput?.value.trim(),
                 email: emailInput.value.trim()
             })
         })
