@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Wishlist</title>
+    <title>Add list</title>
 </head>
 <body>
     <nav>
@@ -16,17 +16,22 @@
 
         </div>
     </nav>
-    <main id="index">
+    <div id="backBtn">
+        <a onclick="history.back()" class="saveBtn">Back</a>
+    </div>
+    <main>
+        <p>You have to enter a users name but the max price is optional</p>
+        <form id="search-by-price">
+            <input class="inputFields" type="text" id="name" placeholder="Enter username">
+            <input class="inputFields" type="number" id="maxprice" placeholder="Max price">
+            <button class="home-btns" type="submit" id="searchNow">Search</button>
+        </form>
+        <div id="results">
 
-            <img id="image" src="./assets/wishlist.png" alt="image">
-            <div class="buttons">
-                <a href="./list.html" class="home-btns" id="my-list-btn">All lists</a>
-                <a href="./search.html" class="home-btns" id="searchbyuser">Search lists by users name</a>
-                <a href="./searchprice.html" class="home-btns" id="filter">Search items</a>
-                <!-- <a class="home-btns" id="filter-name">Search items by users name</a> -->
-            </div>
+        </div>
 
     </main>
-    <script src="./build/login.js"></script>
+    <script src="./build/search.js" defer></script>
+    <script src="./build/login.js" defer></script>
 </body>
 </html>

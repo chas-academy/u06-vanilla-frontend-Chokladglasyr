@@ -3,6 +3,12 @@
   flex-direction: column;
   gap: 2rem;
 }
+@media (min-width: 790px) {
+  #items-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 .item-photo {
   width: 95px;
@@ -312,4 +318,31 @@ main {
 }
 #logout > p, #logout h2, #editText > p, #editText h2 {
   text-align: center;
+}
+
+#search, #search-by-price {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#results {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+@media (min-width: 790px) {
+  #results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 790px) {
+  #search-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }/*# sourceMappingURL=style.css.map */
