@@ -36,6 +36,7 @@ function fetchItemsData() {
                 if (errorMessage) {
                     errorMessage.setAttribute("class", "errorMessage");
                     errorMessage.innerText = "No items found for this list.";
+                    itemContainer === null || itemContainer === void 0 ? void 0 : itemContainer.setAttribute("style", "display: flex;");
                 }
             }
             itemsData.forEach((item, index) => {

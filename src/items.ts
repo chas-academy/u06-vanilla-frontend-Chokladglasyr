@@ -27,6 +27,7 @@ async function fetchItemsData() {
             if(errorMessage){
                 errorMessage.setAttribute("class", "errorMessage");
                 errorMessage.innerText = "No items found for this list."
+                itemContainer?.setAttribute("style", "display: flex;")
             }
         }
         
