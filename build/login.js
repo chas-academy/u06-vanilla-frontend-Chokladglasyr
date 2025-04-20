@@ -13,6 +13,7 @@ const editOrloginBTN = editOrloginCon === null || editOrloginCon === void 0 ? vo
 const createNewListBtn = document.getElementById('new-list');
 const createNewItemBtn = document.getElementById('new-item');
 let token = sessionStorage.getItem("token");
+setTimeout(() => sessionStorage.clear(), 60 * 60 * 1000);
 // console.log(token)
 if (!token || token === "undefined") {
     if (editOrloginBTN) {
@@ -56,7 +57,7 @@ function fetchLoginData(e) {
                 const response = yield fetch('https://u05-restfulapi-chokladglasyr.onrender.com/login', {
                     method: "POST",
                     headers: {
-                        Accept: "application/json",
+                        "Accept": "application/json",
                         "Content-type": "application/json",
                     },
                     body: JSON.stringify({
@@ -92,7 +93,7 @@ function fetchRegisterData(e) {
                 const response = yield fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/register`, {
                     method: "POST",
                     headers: {
-                        Accept: "application/json",
+                        "Accept": "application/json",
                         "Content-type": "application/json",
                     },
                     body: JSON.stringify({
@@ -125,3 +126,38 @@ function fetchRegisterData(e) {
         }
     });
 }
+// async function getNewAccessToken() {
+//     try {
+//       const response = await fetch('https://u05-restfulapi-chokladglasyr.onrender.com/refresh', {
+//         method: 'POST',
+//         headers: {
+//             "Accept": "application/json",
+//             "Content-type": "application/json",
+//             "Authorization": `${token}`
+//         },  
+//         credentials: 'include', 
+//       });
+//       const data = await response.json();
+//       console.log(data)
+//       if (data.accessToken) {
+//         sessionStorage.setItem("token", data.accessToken); 
+//       } else {
+//         console.error("No access token returned");
+//       }
+//     } catch (error) {
+//       console.error("Token refresh failed", error);
+//     }
+//   }
+// setInterval(() => {
+//     fetch('/refresh', {
+//       method: 'POST',
+//       credentials: 'include'
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       sessionStorage.setItem("token", data.accessToken);
+//     })
+//     .catch(err => {
+//       console.error("Failed to refresh token:", err);
+//     });
+//   }, 10 * 60 * 1000); 

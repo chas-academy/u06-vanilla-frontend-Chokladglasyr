@@ -4,6 +4,8 @@ const editOrloginBTN = editOrloginCon?.appendChild(document.createElement('a'))
 const createNewListBtn = document.getElementById('new-list')
 const createNewItemBtn = document.getElementById('new-item');
 let token = sessionStorage.getItem("token");
+
+setTimeout(() =>sessionStorage.clear(), 60 * 60 * 1000)
 // console.log(token)
 if(!token || token === "undefined"){
     if(editOrloginBTN) {
@@ -50,7 +52,7 @@ async function fetchLoginData(e: Event) {
             const response = await fetch('https://u05-restfulapi-chokladglasyr.onrender.com/login', {
                 method: "POST",
                 headers: {
-                    Accept: "application/json",
+                    "Accept": "application/json",
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
@@ -60,6 +62,7 @@ async function fetchLoginData(e: Event) {
             })
             const data = await response.json();
             sessionStorage.setItem("token", data.accessToken);
+
             if(!response.ok) {
                 alert("Oops, something went wrong, try again!");
                 window.location.href = "./login.html";
@@ -84,7 +87,7 @@ async function fetchRegisterData(e: Event) {
             const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/register`, {
                 method: "POST",
                 headers: {
-                    Accept: "application/json",
+                    "Accept": "application/json",
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
@@ -93,7 +96,7 @@ async function fetchRegisterData(e: Event) {
                     password: form.password.value.trim(),
                     confirmed_password: form.confirmed_password.value.trim()
                 })
-            })
+            });
             const data = await response.json();
             // if(!response.ok) {
             //     alert("Oops, something went wrong, try again!");
@@ -115,3 +118,41 @@ async function fetchRegisterData(e: Event) {
         }
     }
 }
+
+// async function getNewAccessToken() {
+
+//     try {
+//       const response = await fetch('https://u05-restfulapi-chokladglasyr.onrender.com/refresh', {
+//         method: 'POST',
+//         headers: {
+//             "Accept": "application/json",
+//             "Content-type": "application/json",
+//             "Authorization": `${token}`
+//         },  
+//         credentials: 'include', 
+//       });
+  
+//       const data = await response.json();
+//       console.log(data)
+//       if (data.accessToken) {
+//         sessionStorage.setItem("token", data.accessToken); 
+//       } else {
+//         console.error("No access token returned");
+//       }
+//     } catch (error) {
+//       console.error("Token refresh failed", error);
+//     }
+//   }
+// setInterval(() => {
+//     fetch('/refresh', {
+//       method: 'POST',
+//       credentials: 'include'
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       sessionStorage.setItem("token", data.accessToken);
+//     })
+//     .catch(err => {
+//       console.error("Failed to refresh token:", err);
+//     });
+//   }, 10 * 60 * 1000); 

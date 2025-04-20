@@ -6,6 +6,9 @@ searchBtn?.addEventListener("click", searchLists);
 
 async function searchLists(e: Event) {
     try{
+        if(searchResults){
+            searchResults.innerHTML="";
+        }
         console.log(searchUsername.value)
         e.preventDefault();
         const response = await fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/search?name=${searchUsername.value}`)
@@ -61,7 +64,6 @@ async function searchListsByPrice(e: Event) {
     try{
         if(results){
             results.innerHTML="";
-
         }
         if(!maxPrice) {
             

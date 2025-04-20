@@ -15,6 +15,9 @@ searchBtn === null || searchBtn === void 0 ? void 0 : searchBtn.addEventListener
 function searchLists(e) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            if (searchResults) {
+                searchResults.innerHTML = "";
+            }
             console.log(searchUsername.value);
             e.preventDefault();
             const response = yield fetch(`https://u05-restfulapi-chokladglasyr.onrender.com/search?name=${searchUsername.value}`);
